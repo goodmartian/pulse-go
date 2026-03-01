@@ -43,12 +43,7 @@ func Init() {
 	cfg := config.LoadConfig()
 	Lang = cfg.Lang
 	if Lang == "" {
-		state := config.LoadState()
-		if state.Lang != "" {
-			Lang = state.Lang
-		} else {
-			Lang = "en"
-		}
+		Lang = "en"
 	}
 	SetLang(Lang)
 }
