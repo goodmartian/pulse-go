@@ -2,6 +2,8 @@
 
 Pulse Go is a CLI tool for project tracking, focus management, and idea capture — right in your terminal. The interface is built with the [Charmbracelet](https://charm.sh/) TUI ecosystem.
 
+![demo](demo.gif)
+
 ## Features
 
 - Focus management: set your current task and track how long you've been on it.

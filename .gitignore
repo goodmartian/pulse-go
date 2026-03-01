@@ -14,6 +14,10 @@
 # OS specific
 .DS_Store
 
+# Demo generated files
+demo/projects/
+demo/config/
+
 # Environment and Logs
 .env
 *.log
