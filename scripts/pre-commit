@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -e
+
+echo "==> Running pre-commit checks..."
+
+# gofmt
+UNFORMATTED=$(gofmt -l . 2>&1 || true)
+if [ -n "$UNFORMATTED" ]; then
+    echo "FAIL: gofmt — unformatted files:"
+    echo "$UNFORMATTED"
+    exit 1
+fi
+echo "  gofmt ✓"
+
+# go vet
+if ! go vet ./... 2>&1; then
+    echo "FAIL: go vet"
+    exit 1
+fi
+echo "  go vet ✓"
+
+# golangci-lint (optional)
+if command -v golangci-lint &>/dev/null; then
+    if ! golangci-lint run ./... 2>&1; then
+        echo "FAIL: golangci-lint"
+        exit 1
+    fi
+    echo "  golangci-lint ✓"
+else
+    echo "  golangci-lint — skipped (not installed)"
+fi
+
+# go test
+if ! go test ./... 2>&1; then
+    echo "FAIL: go test"
+    exit 1
+fi
+echo "  go test ✓"
+
+echo "==> All checks passed."

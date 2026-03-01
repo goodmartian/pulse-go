@@ -1,0 +1,20 @@
+# Binaries
+pulse
+pulse-go
+*.exe
+*.out
+*.app
+
+# Directories
+.pulse/
+.idea/
+.vscode/
+.serena/
+
+# OS specific
+.DS_Store
+
+# Environment and Logs
+.env
+*.log
+firebase-debug.log
