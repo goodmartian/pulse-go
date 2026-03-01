@@ -1,6 +1,6 @@
 # Binaries
-pulse
-pulse-go
+/pulse
+/pulse-go
 *.exe
 *.out
 *.app
